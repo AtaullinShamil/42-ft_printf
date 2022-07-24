@@ -9,6 +9,9 @@
 # **************************************************************************** #
 
 NAME = libftprintf.a
+HEADER = ft_printf.h
+FLAGS = -Wall -Werror -Wextra
+CC = gcc
 
 LIST =	ft_char.c\
 		ft_decimal.c\
@@ -16,10 +19,7 @@ LIST =	ft_char.c\
 		ft_pointer.c\
 		main.c\
 
-OBJ = $(patsubst %.c, %.o, $(LIST))
-
-HEADER = ft_printf.h
-FLAGS = -Wall -Werror -Wextra
+OBJ = $(LIST:.c=.o)
 
 all : $(NAME)
 
@@ -27,10 +27,7 @@ $(NAME) : $(OBJ)
 	ar rcs $(NAME) $?
 
 %.o : %.c $(HEADER) Makefile
-	gcc $(FLAGS) -c $< -o $@
-
-bonus:
-	@make OBJ="$(OBJ_B)" all
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OBJ) $(OBJ_B)
@@ -40,4 +37,4 @@ fclean : clean
 
 re: fclean all
 
-.PHONY : all clean fclean re bonus
+.PHONY : all clean fclean re
