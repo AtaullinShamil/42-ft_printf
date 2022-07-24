@@ -17,7 +17,7 @@ LIST =	ft_char.c\
 		ft_decimal.c\
 		ft_hexadecimal.c\
 		ft_pointer.c\
-		main.c\
+		ft_printf.c\
 
 OBJ = $(LIST:.c=.o)
 
