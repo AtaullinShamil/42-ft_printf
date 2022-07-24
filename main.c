@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ntojamur <ntojamur@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/10 16:37:40 by ntojamur          #+#    #+#             */
-/*   Updated: 2021/12/13 22:49:35 by ntojamur         ###   ########.fr       */
+/*   main.c                                                                   */
+/*                                                                            */
+/*   By: Ataullin Shamil                                                      */
+/*                                                                            */
+/*   Created: 2021/12/10                                                      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_whatisthis(char c, va_list ap)
+static int	ft_check_symbol(char c, va_list ap)
 {
 	if (c == 'c')
 		return (ft_putchar(va_arg (ap, int)));
@@ -47,7 +45,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			plus = ft_whatisthis(str[i + 1], ap);
+			plus = ft_check_symbol(str[i + 1], ap);
 			res = res + plus;
 			i++;
 		}

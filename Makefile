@@ -1,23 +1,20 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ntojamur <ntojamur@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/12/11 01:20:10 by ntojamur          #+#    #+#              #
-#    Updated: 2021/12/13 22:47:50 by ntojamur         ###   ########.fr        #
+#    Makefile                                                                  #
+#                                                                              #
+#    By: Ataullin Shamil                                                       #
+#                                                                              #
+#    Created: 2021/12/11                                                       #
 #                                                                              #
 # **************************************************************************** #
 
-
 NAME = libftprintf.a
 
-LIST =	ft_charus.c\
+LIST =	ft_char.c\
 		ft_decimal.c\
 		ft_hexadecimal.c\
 		ft_pointer.c\
-		ft_printf.c\
+		main.c\
 
 OBJ = $(patsubst %.c, %.o, $(LIST))
 
@@ -29,7 +26,7 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	ar rcs $(NAME) $?
 
-%.o : %.c $(HEADER)
+%.o : %.c $(HEADER) Makefile
 	gcc $(FLAGS) -c $< -o $@
 
 bonus:
